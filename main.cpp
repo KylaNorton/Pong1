@@ -87,6 +87,14 @@ void update(float dt, sf::RenderWindow &window) {
     }
     paddles[0].move(sf::Vector2f(0.f, direction * paddleSpeed * dt));
 
+      float direction1 = 0.0f;
+    if (sf::Keyboard::isKeyPressed(controls[2])) {
+        direction1--;
+    }
+    if (sf::Keyboard::isKeyPressed(controls[3])) {
+        direction1++;
+    }
+    paddles[1].move(sf::Vector2f(0.f, direction1 * paddleSpeed * dt));
     // clamp paddles inside screen
     for (sf::RectangleShape &p : paddles) {
         const float py = p.getPosition().y;
